@@ -9,9 +9,9 @@ const {entries} = useEntry([])
 
     return (
         <ul>
-            {entries.map((entry) => {
+            {entries.map((entry, i) => {
             return (
-                <li>
+                <li key={i}>
                     <EntryDetail entry={entry}/>
                 </li>
             )   
