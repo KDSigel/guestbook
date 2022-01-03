@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should check App 1`] = `
+<div>
+  <div>
+    <h2>
+      Sign the guestbook, now!
+    </h2>
+    <form>
+      <div>
+        Guest Name
+        <input
+          placeholder="Guest Name..."
+          value=""
+        />
+      </div>
+      <div>
+        Guest Entry
+        <textarea
+          placeholder="write something meaningful"
+        />
+      </div>
+      <button>
+        Sign
+      </button>
+      
+    </form>
+    <ul />
+  </div>
+</div>
+`;
