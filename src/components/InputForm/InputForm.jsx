@@ -4,18 +4,16 @@ import { useUser } from '../../context/UserContext'
 
 export default function InputForm() {
 //context
-const {user, setUser} = useUser()
+const {user, logout} = useUser()
 const {entries, setEntries} = useEntry([])
 //regular states/hooks
-const [name, setName] = useState('')
 const [guestEntry, setGuestEntry] = useState('')
 
 function updateGuestName() {
     
     if (!guestEntry) return
 
-    setUser(name)
-    setEntries([...entries, { name, message: guestEntry }])
+    setEntries([...entries, { name: user, message: guestEntry }])
     setGuestEntry('')
   }
 
@@ -34,19 +32,6 @@ const greeting = user
             <form 
             onSubmit={handleSubmit}
             >
-                {user
-                    ? null 
-                    : <div>
-                        Guest Name
-                        <input 
-                            placeholder="Guest Name..."
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}
-                            >
-                        </input>
-                    </div>
-                }
-
                 <div>
                     Guest Entry
                     <textarea
@@ -60,10 +45,8 @@ const greeting = user
 
                 {user && (
                     <button
-                        onClick={() => {
-                        setUser('')
-                        setName('')
-                      }}
+                    type='button'
+                        onClick={logout}
                       >not {user}?</button>
                 )}
             </form>
